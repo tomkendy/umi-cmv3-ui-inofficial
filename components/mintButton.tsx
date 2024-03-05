@@ -109,9 +109,9 @@ const mintClick = async (
   mintAmount: number,
   mintsCreated:
     | {
-        mint: PublicKey;
-        offChainMetadata: JsonMetadata | undefined;
-      }[]
+      mint: PublicKey;
+      offChainMetadata: JsonMetadata | undefined;
+    }[]
     | undefined,
   setMintsCreated: Dispatch<
     SetStateAction<
@@ -239,8 +239,7 @@ const mintClick = async (
         .sendTransaction(tx)
         .then((signature) => {
           console.log(
-            `Transaction ${index + 1} resolved with signature: ${
-              base58.deserialize(signature)[0]
+            `Transaction ${index + 1} resolved with signature: ${base58.deserialize(signature)[0]
             }`
           );
           amountSent = amountSent + 1;
@@ -271,7 +270,7 @@ const mintClick = async (
       status: "success",
       duration: 3000,
     });
-    
+
     const successfulMints = await verifyTx(umi, signatures);
 
     updateLoadingText(
@@ -306,8 +305,8 @@ const mintClick = async (
 
     // Update mintsCreated only if there are new mints
     if (newMintsCreated.length > 0) {
-        setMintsCreated(newMintsCreated);
-        onOpen();
+      setMintsCreated(newMintsCreated);
+      onOpen();
     }
   } catch (e) {
     console.error(`minting failed because of ${e}`);
@@ -436,11 +435,11 @@ type Props = {
   ownedTokens: DigitalAssetWithToken[] | undefined;
   setGuardList: Dispatch<SetStateAction<GuardReturn[]>>;
   mintsCreated:
-    | {
-        mint: PublicKey;
-        offChainMetadata: JsonMetadata | undefined;
-      }[]
-    | undefined;
+  | {
+    mint: PublicKey;
+    offChainMetadata: JsonMetadata | undefined;
+  }[]
+  | undefined;
   setMintsCreated: Dispatch<
     SetStateAction<
       | { mint: PublicKey; offChainMetadata: JsonMetadata | undefined }[]
@@ -521,10 +520,7 @@ export function ButtonList({
   const listItems = buttonGuardList.map((buttonGuard, index) => (
     <Box key={index} marginTop={"20px"}>
       <Divider my="10px" />
-      <HStack>
-        <Heading size="xs" textTransform="uppercase">
-          Gods Saga
-        </Heading>
+      <HStack className="timeArea">
         <Flex justifyContent="flex-end" marginLeft="auto">
           {buttonGuard.endTime > createBigInt(0) &&
             buttonGuard.endTime - solanaTime > createBigInt(0) &&
@@ -546,6 +542,14 @@ export function ButtonList({
             (!buttonGuard.endTime ||
               solanaTime - buttonGuard.endTime <= createBigInt(0)) && (
               <>
+                <Text className="timeArea" fontSize="sm" marginRight={"2"}>
+                  Starting in:{" "}
+                </Text>
+                <Timer
+                  toTime={buttonGuard.startTime}
+                  solanaTime={solanaTime}
+                  setCheckEligibility={setCheckEligibility}
+                />
               </>
             )}
         </Flex>
@@ -554,7 +558,7 @@ export function ButtonList({
 
         <VStack>
           {process.env.NEXT_PUBLIC_MULTIMINT && buttonGuard.allowed ? (
-            <NumberInput
+            <NumberInput  className="timeArea"
               value={numberInputValues[buttonGuard.label] || 1}
               min={1}
               max={buttonGuard.maxAmount < 1 ? 1 : buttonGuard.maxAmount}
@@ -566,8 +570,8 @@ export function ButtonList({
             >
               <NumberInputField />
               <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
+                <NumberIncrementStepper className="timeArea" />
+                <NumberDecrementStepper  className="timeArea"/>
               </NumberInputStepper>
             </NumberInput>
           ) : null}

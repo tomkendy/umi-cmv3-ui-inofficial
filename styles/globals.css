@@ -130,3 +130,8 @@ button.wallet-adapter-button-trigger:hover {
 .headerName2{
   justify-content: center;
 }
+
+.timeArea{
+  justify-content: center;
+  color: white !important;
+}

@@ -325,10 +325,10 @@ export const guardChecker = async (
         guardReturn.push({
           label: eachGuard.label,
           allowed: false,
-          reason: "Will be active after 13:00 UTC!",
+          reason: "Refresh the page after 13:00 UTC",
           maxAmount: 0
         });
-        console.info(`${eachGuard.label} Will be active after 13:00 UTC!`);
+        console.info(`${eachGuard.label} Refresh the page after 13:00 UTC`);
 
         continue;
       }
