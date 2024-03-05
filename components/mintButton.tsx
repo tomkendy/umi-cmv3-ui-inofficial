@@ -507,8 +507,6 @@ export function ButtonList({
     let buttonElement: GuardButtonList = {
       label: guard ? guard.label : "default",
       allowed: guard.allowed,
-      header: text ? "header missing in settings.tsx" : "header missing in settings.tsx",
-      mintText: text ? "header missing in settings.tsx" : "mintText missing in settings.tsx",
       buttonLabel: text
         ? text.buttonLabel
         : "buttonLabel missing in settings.tsx",
@@ -525,7 +523,7 @@ export function ButtonList({
       <Divider my="10px" />
       <HStack>
         <Heading size="xs" textTransform="uppercase">
-          {buttonGuard.header}
+          Gods Saga
         </Heading>
         <Flex justifyContent="flex-end" marginLeft="auto">
           {buttonGuard.endTime > createBigInt(0) &&
@@ -548,14 +546,6 @@ export function ButtonList({
             (!buttonGuard.endTime ||
               solanaTime - buttonGuard.endTime <= createBigInt(0)) && (
               <>
-                <Text fontSize="sm" marginRight={"2"}>
-                  Starting in:{" "}
-                </Text>
-                <Timer
-                  toTime={buttonGuard.startTime}
-                  solanaTime={solanaTime}
-                  setCheckEligibility={setCheckEligibility}
-                />
               </>
             )}
         </Flex>
