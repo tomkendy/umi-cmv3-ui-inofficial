@@ -507,8 +507,8 @@ export function ButtonList({
     let buttonElement: GuardButtonList = {
       label: guard ? guard.label : "default",
       allowed: guard.allowed,
-      header: text ? text.header : "header missing in settings.tsx",
-      mintText: text ? text.mintText : "mintText missing in settings.tsx",
+      header: text ? "header missing in settings.tsx" : "header missing in settings.tsx",
+      mintText: text ? "header missing in settings.tsx" : "mintText missing in settings.tsx",
       buttonLabel: text
         ? text.buttonLabel
         : "buttonLabel missing in settings.tsx",
@@ -560,10 +560,8 @@ export function ButtonList({
             )}
         </Flex>
       </HStack>
-      <SimpleGrid columns={2} spacing={5}>
-        <Text pt="2" fontSize="sm">
-          {buttonGuard.mintText}
-        </Text>
+      <SimpleGrid columns={2} spacing={5} className="mintArea">
+
         <VStack>
           {process.env.NEXT_PUBLIC_MULTIMINT && buttonGuard.allowed ? (
             <NumberInput
@@ -604,6 +602,7 @@ export function ButtonList({
               }
               key={buttonGuard.label}
               size="sm"
+              className="mintButton"
               backgroundColor="teal.100"
               isDisabled={!buttonGuard.allowed}
               isLoading={

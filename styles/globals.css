@@ -73,3 +73,34 @@ button.wallet-adapter-button-trigger {
 button.wallet-adapter-button-trigger:hover {
   background-color: rgb(var(--hover-background-rgb)) !important;
 }
+
+.smeeee{
+  width:200px;
+  height:60px !important;
+  background-color: black !important;
+  color: white !important;
+}
+
+.c1c1{
+  display: unset !important;
+}
+
+.cardBody{
+  width: 400px;
+  height:600px;
+  margin-top:-100px;
+  background-color:black !important;
+}
+
+.headTitle{
+  color: white
+}
+
+.mintButton{
+  height:50px !important;
+  width: 200px !important;
+}
+
+.mintArea{
+  display: unset !important
+}

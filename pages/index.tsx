@@ -217,8 +217,8 @@ export default function Home() {
                 <Flex justifyContent="flex-end" marginLeft="auto">
                   <Box background={"teal.100"} borderRadius={"5px"} minWidth={"50px"} minHeight={"50px"} p={2} >
                     <VStack >
-                      <Text fontSize={"sm"}>Available NFTs:</Text>
-                      <Text fontWeight={"semibold"}>{Number(candyMachine?.data.itemsAvailable) - Number(candyMachine?.itemsRedeemed)}/{Number(candyMachine?.data.itemsAvailable)}</Text>
+                      <Text fontSize={"sm"}>Minted NFTs:</Text>
+                      <Text fontWeight={"semibold"}>{Number(candyMachine?.itemsRedeemed)} / 333</Text>
                     </VStack>
                   </Box>
                 </Flex>
@@ -235,6 +235,7 @@ export default function Home() {
                 <Image
                   rounded={'lg'}
                   height={230}
+                  marginTop={30}
                   objectFit={'cover'}
                   alt={"project Image"}
                   src={image}
@@ -268,9 +269,6 @@ export default function Home() {
         </Card >
         {umi.identity.publicKey === candyMachine?.authority ? (
           <>
-            <Center>
-              <Button backgroundColor={"red.200"} marginTop={"10"} onClick={onInitializerOpen}>Initialize Everything!</Button>
-            </Center>
             <Modal isOpen={isInitializerOpen} onClose={onInitializerClose}>
               <ModalOverlay />
               <ModalContent maxW="600px">
