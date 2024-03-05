@@ -203,26 +203,21 @@ export default function Home() {
         <style jsx global>
           {`
       body {
-          background: #2d3748; 
+        background-image: url(https://godssaga.com/images/cover.png);
+        background-attachment: fixed;
+        background-position: top !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100vh;
        }
    `}
         </style>
-        <Card>
-          <CardHeader>
-            <Flex minWidth='max-content' alignItems='center' gap='2'>
+        <Card className="mainCover">
+          <CardHeader >
+            <Flex minWidth='max-content' alignItems='center' gap='2' className="headerName2" >
               <Box>
-                <Heading size='md'>{headerText}</Heading>
+                <Heading className="headerName" size='md'>{headerText}</Heading>
               </Box>
-              {loading ? (<></>) : (
-                <Flex justifyContent="flex-end" marginLeft="auto">
-                  <Box background={"teal.100"} borderRadius={"5px"} minWidth={"50px"} minHeight={"50px"} p={2} >
-                    <VStack >
-                      <Text fontSize={"sm"}>Minted NFTs:</Text>
-                      <Text fontWeight={"semibold"}>{Number(candyMachine?.itemsRedeemed)} / 333</Text>
-                    </VStack>
-                  </Box>
-                </Flex>
-              )}
             </Flex>
           </CardHeader>
 
@@ -242,7 +237,11 @@ export default function Home() {
                 />
               </Box>
             </Center>
-            <Stack divider={<StackDivider />} spacing='8'>
+            <Stack divider={<StackDivider />} spacing='18' className="boxShd">
+            <Text color={"white"} fontWeight={"semibold"}></Text>
+                      <Text color={"white"} fontWeight={"semibold"}>Mint Price :  0.6 SOL</Text>
+                      <Text color={"white"} fontWeight={"semibold"}>Remeaning: {Number(candyMachine?.itemsRedeemed)} / 333</Text>
+                      </Stack>
               {loading ? (
                 <div>
                   <Divider my="10px" />
@@ -264,7 +263,6 @@ export default function Home() {
                   setCheckEligibility={setCheckEligibility}
                 />
               )}
-            </Stack>
           </CardBody>
         </Card >
         {umi.identity.publicKey === candyMachine?.authority ? (
