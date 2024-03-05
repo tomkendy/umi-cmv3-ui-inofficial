@@ -240,7 +240,7 @@ export default function Home() {
             <Stack divider={<StackDivider />} spacing='18' className="boxShd">
             <Text color={"white"} fontWeight={"semibold"}></Text>
                       <Text color={"white"} fontWeight={"semibold"}>Mint Price :  0.6 SOL</Text>
-                      <Text color={"white"} fontWeight={"semibold"}>Remeaning: {Number(candyMachine?.itemsRedeemed)} / 333</Text>
+                      <Text color={"white"} fontWeight={"semibold"}>Remaining:  {333 - Number(candyMachine?.itemsRedeemed)} / 333</Text>
                       </Stack>
               {loading ? (
                 <div>
