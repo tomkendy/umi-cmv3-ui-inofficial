@@ -568,11 +568,6 @@ export function ButtonList({
                 handleNumberInputChange(buttonGuard.label, valueAsNumber)
               }
             >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper className="timeArea" />
-                <NumberDecrementStepper  className="timeArea"/>
-              </NumberInputStepper>
             </NumberInput>
           ) : null}
 
