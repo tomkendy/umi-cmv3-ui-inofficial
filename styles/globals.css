@@ -99,8 +99,34 @@ button.wallet-adapter-button-trigger:hover {
 .mintButton{
   height:50px !important;
   width: 200px !important;
+  background-color: #a93939 !important;
+  color: white !important;
 }
 
 .mintArea{
   display: unset !important
+}
+
+.mainCover{
+  background-color: #000000d4 !important;
+  margin-top:-50px;
+}
+
+.headerName{
+  color: white !important;
+  font-size:25px !important;
+  align-items: center;
+}
+.fmintedNFTs{
+  background-color: #a93939d4 !important;
+  color: white !important;
+  width:170px;
+}
+
+.boxShd{
+  text-align: center;
+}
+
+.headerName2{
+  justify-content: center;
 }
