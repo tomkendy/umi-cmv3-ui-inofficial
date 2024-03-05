@@ -26,8 +26,6 @@ import {
 import { GuardReturn } from "./checkerHelper";
 
 export interface GuardButtonList extends GuardReturn {
-  header: string;
-  mintText: string;
   buttonLabel: string;
   startTime: bigint;
   endTime: bigint;
